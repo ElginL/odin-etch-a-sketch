@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+
+.draw-title {
+    margin: 0;
+    padding: 16px;
+    text-align: center;
+    color: #cccccc;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    background-color: #0f0f23;
+}
+
+.grid-container {
+    width: 800px;
+    height: 800px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    border: 40px solid #ffff66;
+    box-shadow: 5px 5px 10px #ffff66;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.grid-item {
+    border: 1px solid lightgrey;
+    background-color: white;
+}
