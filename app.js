@@ -1,7 +1,7 @@
 let boxPerRow = 16;
 let boxPerCol = 16;
 let isDrawing = false;
-let paintColor = "green";
+let paintColor = "white";
 let isRainbow = false;
 
 const gridContainer = document.querySelector(".grid-container");
@@ -60,20 +60,52 @@ function deleteGrid() {
 }
 
 function paintHoverHandler(e) {
-    e.target.style.backgroundColor = e.target.textContent;
-    e.target.style.boxShadow = `2px 2px 10px ${e.target.textContent}`
+    if (e.target.className === "paint-btn") {
+        e.target.style.backgroundColor = e.target.textContent;
+        e.target.style.boxShadow = `2px 2px 10px ${e.target.textContent}`
+    }
 }
 
 function resetPaint(e) {
-    e.target.style.backgroundColor = "white";
-    e.target.style.boxShadow = "none";
+    if (e.target.className === "paint-btn") {
+        e.target.style.backgroundColor = "white";
+        e.target.style.boxShadow = "none";
+    }
+}
+
+function removeAllSelectedStyle() {
+    paintButtons.forEach(btn => {
+        if (btn.className === "paint-btn-selected") {
+            btn.classList.remove("paint-btn-selected");
+            btn.style.backgroundColor = "white";
+            btn.style.boxShadow = "none";
+            btn.disabled = false;
+            btn.classList.add("paint-btn");
+        }
+    })
 }
 
 function changeColorHandler(e) {
     paintColor = e.target.textContent;
     isRainbow = false;
+    rainbowPaintBtn.disabled = false;
+    rainbowPaintBtn.classList.remove("rainbow-anim");
 
-    // Make color change permanent
+    // Remove previous selected box
+    removeAllSelectedStyle();
+
+    // Make color selected style
+    e.target.classList.remove("paint-btn");
+    e.target.classList.add("paint-btn-selected");
+    e.target.disabled = true;
+}
+
+function rainbowHoverHandler() {
+    rainbowPaintBtn.classList.add("rainbow-anim");
+}
+
+function rainbowResetHandler() {
+    rainbowPaintBtn.classList.remove("rainbow-anim");
 }
 
 resetBtn.addEventListener("click", resetHandler);
@@ -86,6 +118,13 @@ paintButtons.forEach(paintBtn => {
     paintBtn.addEventListener("click", changeColorHandler);
 });
 
-rainbowPaintBtn.addEventListener("click", () => { isRainbow = true });
+rainbowPaintBtn.addEventListener("click", () => { 
+    isRainbow = true;
+    removeAllSelectedStyle();
+    rainbowPaintBtn.disabled = true; 
+});
+
+rainbowPaintBtn.addEventListener("mouseover", rainbowHoverHandler);
+rainbowPaintBtn.addEventListener("mouseleave", rainbowResetHandler);
 
 generateGrid();
