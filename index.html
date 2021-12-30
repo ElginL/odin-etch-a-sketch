@@ -14,12 +14,23 @@
         </header>
         <main>
             <div class="tool-sidebar">
-                <div class="reset-btn-container">
-                    <h2 class="reset-title">Click to reset canvas</h2>
+                <div class="tool-container">
+                    <h2 class="tool-title">Pick your colour!</h2>
+                    <div class="paint-btn-container">
+                        <button class="paint-btn">Blue</button>
+                        <button class="paint-btn">Green</button>
+                        <button class="paint-btn">Purple</button>
+                        <button class="paint-btn">Red</button>
+                        <button class="paint-btn">Yellow</button>
+                        <button class="paint-btn" id="rainbow-btn">Rainbow</button>
+                    </div>
+                </div>
+                <div class="tool-container">
+                    <h2 class="tool-title">Click to reset canvas</h2>
                     <button class="reset-btn">Reset</button>
                 </div>
-                <div class="grid-size-container">
-                    <h2 class="grid-size-title">Slide to change canvas's box size</h2>
+                <div class="tool-container">
+                    <h2 class="tool-title">Slide to change canvas's box size</h2>
                     <div class="slide-container">
                         <input type="range" value=16 class="grid-size-slider" min="1" max="50">
                     </div>

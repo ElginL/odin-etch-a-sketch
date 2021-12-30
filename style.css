@@ -40,25 +40,25 @@ main {
     background-color: white;
 }
 
-.reset-title,
-.grid-size-title {
+.tool-title {
     color: #009900;
     font-size: 1.75rem;
 }
 
-.reset-btn-container,
-.grid-size-container {
+.tool-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.reset-btn {
+.reset-btn,
+.paint-btn {
     padding: 0.5rem 2rem;
     font-size: 1.25rem;
 }
 
-.reset-btn:hover {
+.reset-btn:hover,
+.paint-btn:hover {
     cursor: pointer;
 }
 
@@ -95,4 +95,17 @@ main {
     height: 25px; /* Slider handle height */
     background: #04AA6D; /* Green background */
     cursor: pointer; /* Cursor on hover */
+}
+
+.paint-btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    width: 100%;
+}
+
+.paint-btn {
+    width: 40%;
+    transition: all 0.3s;
 }
