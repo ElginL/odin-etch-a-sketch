@@ -52,7 +52,8 @@ main {
 }
 
 .reset-btn,
-.paint-btn {
+.paint-btn,
+.paint-btn-selected:disabled {
     padding: 0.5rem 2rem;
     font-size: 1.25rem;
 }
@@ -108,4 +109,25 @@ main {
 .paint-btn {
     width: 40%;
     transition: all 0.3s;
+}
+
+.paint-btn-selected:disabled {
+    width: 40%;
+    color: black;
+}
+
+@keyframes rainbow-background {
+    0% {background-color: red;}
+    16% {background-color: orange;}
+    32% {background-color: yellow;}
+    48% {background-color: green;}
+    64% {background-color: indigo;}
+    82% {background-color: violet;}
+    100% {background-color: blue;}
+}
+
+.rainbow-anim {
+    background-color: white;
+    animation: rainbow-background 7s infinite;
+    color: black;
 }
