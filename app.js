@@ -18,7 +18,7 @@ function paintHandler(e) {
 
     if (isDrawing && isRainbow) {
         const colors = ["red", "orange", "yellow", "green", "indigo", "violet", "blue"];
-        const randomInt = Math.floor(Math.random() * (colors.length - 1 + 1) + 1);
+        const randomInt = Math.floor(Math.random() * (colors.length - 1 + 1));
         e.target.style.backgroundColor = `${colors[randomInt]}`;
     }
 }
